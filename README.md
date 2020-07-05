@@ -1,4 +1,7 @@
+(Asumptions: Multiple offers can be applicalble to a line item in cart and 'APPL' has priority over 'APOM')
+
 (Code Tested on Ruby Version 2.6.3)
+
 To run the code:
 
 1. Install Ruby (Version 2.6.x Recommended) on the machine
