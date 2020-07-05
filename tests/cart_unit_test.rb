@@ -54,4 +54,9 @@ class TestCart < Test::Unit::TestCase
     cart.add('OM1')
     assert_equal(18.05, cart.total_amount)
   end
+
+  def test7
+    cart = Cart.new
+    assert_equal(0.00, cart.total_amount)
+  end
 end
