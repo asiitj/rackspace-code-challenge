@@ -18,21 +18,25 @@ class Cart
     end
   end
 
-  def print_cart
-    puts <<-TITLE
-    Item                          Price
-    ----                          -----
-    TITLE
-    line_items.each do |line_item|
-      puts "    #{line_item.product.code}                           #{line_item.product.price}"
-      line_item.adjustments.each do |adjustment|
-        puts "                #{adjustment.offer_code}              -#{adjustment.discount}"
+  def print
+    if line_items.count == 0
+      puts "Cart is empty!"
+    else
+      puts <<-TITLE
+      Item                          Price
+      ----                          -----
+      TITLE
+      line_items.each do |line_item|
+        puts "      #{line_item.product.code}                           #{line_item.product.price}"
+        line_item.adjustments.each do |adjustment|
+          puts "                  #{adjustment.offer_code}              -#{adjustment.discount}"
+        end
       end
+      puts <<-FOOTER
+      -----------------------------------
+      FOOTER
+      puts "                                    #{total_amount}"
     end
-    puts <<-FOOTER
-    -----------------------------------
-    FOOTER
-    puts "                                  #{total_amount}"
   end
 
   private
